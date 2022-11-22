@@ -1,0 +1,142 @@
+body {
+  text-align: center;
+
+  
+   }
+
+h1 {
+    padding: 10px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+h2 {
+    padding: 20px;
+}
+
+h3 {
+    padding: 10px;
+}
+
+p, ul {
+    font-size: medium;
+   }
+    
+.submit-button{
+    border-radius: 5%;
+    border-width: 1px;
+    background-color: orangered;
+    color: black;
+    border-color: black;
+    padding-left: 45px;
+    padding-right: 45px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    align-self: center;
+    text-align: center ;
+    margin: auto;
+    font-size: 20px;
+}
+
+    
+    /*header and footer*/
+    #header {
+        height: 120px;
+        width: 100%;
+        font-size: larger;
+        text-align: center;
+        border: 0px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        align-self: center;
+        top: 0;
+        left: 0px;
+        right: 0px;
+        bottom: 200px;
+        position: relative;
+    }
+
+    #footer {
+        height: 60px;
+    }
+
+    /* form */
+    
+form {
+        padding: 10px;
+    }
+    
+.form-group {
+    background-color: cornflowerblue;
+    text-align: center;
+    justify-content: center;
+    align-self: center;
+    position: fixed;
+    padding: 50px;
+    width: auto;
+    height: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    height: 50px;
+}    
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+    
+    
+    
+.form-check-label{
+    
+    text-align: left;
+
+}
+
+form {
+    align-self: center;
+
+}
+    
+    
+
+    
+    .center-row  {
+        align-self: center;
+        position: flex;
+        text-align: center; 
+        flex-direction: column;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .formInputs{
+        width: 150px;
+        float: left;
+        text-align: center;
+        height: 50px;
+        margin-top: 0px;
+      }
+    
+    label {
+        text-align: left;
+        display: none;
+        width: auto;
+        align-self: left;
+        justify-self: left;
+        justify-content: left;
+    }

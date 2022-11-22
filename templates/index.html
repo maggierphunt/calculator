@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <!-- title: CHANGE ME -->
+        <title>Calculator</title>
+    <!-- stylesheets -->
+        <link rel="stylesheet" href="../static/css/stylesheet.css">
+       
+    
+    <!-- meta -->
+        <meta name="author" content="Maggie Hunt">
+        <meta name="description" content="A transliteration tool, to convert between the Latin and Arabic alphabets, using the IJMES Transliteration System.">
+        
+    </head>
+    <body>
+        <div id="form-section">
+            <form id=calculatorForm action="/calculator"  method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <div class="row">
+
+                        <div class="col">
+                          <h3>Item</h3>
+                        </div>
+                        <div class="col">
+                            <h3>Price</h3>
+                          </div>
+                    </div>
+                   
+                    <div class="row">
+                        <div class="col">
+                          <input type="text" step="any" id="inputText1" name="inputText1" class="form-control formInputs" placeholder="Item" required>
+                          <label for="inputText1">Product</label>
+                        </div>
+                        <div class="col">
+                          <input type="number"  id="inputNumber1" name="inputNumber1" class="form-control formInputs" placeholder="£" value="0" min="0" max="5000000" required>
+                          <label for="inputNumber1">Price</label>
+                        </div>
+                    </div>
+                    <div class="row">
+              
+                        <div class="col">
+                          <input type="text" step="any" id="inputText2" name="inputText2" class="form-control formInputs" placeholder="Item" required>
+                          <label for="inputText2">Product</label>
+                        </div>
+                        <div class="col">
+                          <input type="number"  id="inputNumber2" name="inputNumber2" class="form-control formInputs" placeholder="£" value="0" min="0" max="5000000" required>
+                          <label for="inputNumber2">Price</label>
+                        </div>
+                    </div>
+                        <div class="row">
+      
+                            <div class="col">
+                              <input type="text" step="any" id="inputText3" name="inputText3" class="form-control formInputs" placeholder="Item" required>
+                              <label for="inputText3">Product</label>
+                            </div>
+                            <div class="col">
+                              <input type="number"  id="inputNumber3" name="inputNumber3" class="form-control formInputs" placeholder="£" value="0" min="0" max="5000000" required>
+                              <label for="inputNumber3">Price</label>
+                            </div>
+
+        
+                     
+                        </div>
+                   
+    
+                
+                    <button type="submit" class="submit-button" id="form-button">Submit</button>
+            </form>
+    </div>
+    <footer>
+        
+    </footer>
+</div>
+ </body>
+        <!-- scripts-->
+        <script src="../static/js/script.js"></script>
+   
+</html>
