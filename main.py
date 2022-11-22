@@ -15,11 +15,16 @@ from sqlalchemy.engine import create_engine
 from google.oauth2 import service_account
 from google.cloud import bigquery, storage
 
+#while debugging hosting
+import webbrowser
+
+
+#while writing to csv
+import csv
+import json
+
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-
-# import pandas as pd
-# from fastavro import writer, parse_schema
 
 parser = configparser.ConfigParser()
 parser.read(".env")
@@ -34,7 +39,7 @@ dataset_id = parser.get("DEFAULT", "dataset_id")
 credentials = parser.get("DEFAULT", "credentials")
 table = parser.get("DEFAULT", "table")
 
-storage_client = storage.Client.from_service_account_json(credentials)
+# storage_client = storage.Client.from_service_account_json(credentials)
 # # INSTANCE_CONNECTION_NAME = f"{project_id}:{region}:{instance_name}"
 
 # # connector = Connector()
@@ -49,13 +54,6 @@ storage_client = storage.Client.from_service_account_json(credentials)
 #    )
 #    return conn
 
-# # pool = sqlalchemy.create_engine(
-# #    "postgresql+pg8000://",
-# #    creator=getconn,
-# # )
-
-# # tb_key_stats = pd.read_sql_query("SELECT * From `calc_list.products`", con=pool)
-# # print(tb_key_stats)
 
 bigquery_uri = "bigquery://"+dataset_id
 
@@ -70,20 +68,21 @@ query = f'SELECT title, url, referrer FROM {dataset_id}.{table} \
           AND title IS NOT NULL \
           ORDER BY RAND () LIMIT 20;'
 
-rows = engine.execute(query).fetchall()
+#rows = engine.execute(query).fetchall()
 # rows = [dict(row) for row in rows]
 # print(rows)
-
-# base = sqlalchemy.declarative_base()
-# class Products(base):
-#     __tablename__ = "products"
-#     item = sqlalchemy.Column(sqlalchemy.String,primary_key=True)
-#     price = sqlalchemy.Column(sqlalchemy.Float)
-
+#
 app = Flask("calculator")
+
+#opens webpage
+webbrowser.open("http://127.0.0.1:8080/", new = 2, autoraise = True)
+with open("Table.csv", "a", encoding="UTF8") as f:
+        writer = csv.writer(f, delimiter=",")
+        writer.writerow("")
 
 @app.route("/", methods=["POST", "GET"])    
 def landing_page():
+    
     return render_template("index.html")
 
 
@@ -96,6 +95,21 @@ def calculator():
     inputNumber2=int(request.form['inputNumber2'])
     inputNumber3=int(request.form['inputNumber3'])
     total = inputNumber1+inputNumber2+inputNumber3
+
+    #when writing to csv
+
+    # adding row to csv
+    with open("Table.csv", "a", encoding="UTF8") as f:
+        writer = csv.writer(f)
+
+        log_data1 = inputText1+str(inputNumber1)
+        writer.writerow(log_data1)
+
+        log_data2 = inputText2+str(inputNumber2)
+        writer.writerow(log_data2)
+
+        log_data3 = inputText3+str(inputNumber3)
+        writer.writerow(log_data3)
 
     query = ("INSERT INTO calc_list.products (item, price) values (%s, %s),(%s, %s), (%s, %s);", (inputText1, inputNumber1, inputText2, inputNumber2, inputText2, inputNumber3))
 

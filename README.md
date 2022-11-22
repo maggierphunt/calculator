@@ -15,3 +15,5 @@ Possible interpretations:
 3 Build front end where users enter custom items and amounts; these are added to the db when submitted and the total vauel of all items listed in the db is displayed on the results page
 
 At first I set on option 3 but after 3 hours realised this was not feasible when using a new library and working full stack in one evening; I therefore opted to work on option 1, with option 2 a potential 'nice to have'.
+
+I've had some auth issues with GCP - so tested out pushing to a csvfile while I tried to debug.
