@@ -1,5 +1,6 @@
 from operator import itemgetter
 import os
+from app import app
 from typing import ItemsView
 from flask import Flask, render_template, request, url_for, redirect
 import sqlalchemy
@@ -9,15 +10,19 @@ from sqlalchemy.schema import *
 from pybigquery.api import ApiClient
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
-import configparser
+# import configparser
 
-parser = configparser.ConfigParser()
-parser.read(".env")
+# parser = configparser.ConfigParser()
+# parser.read(".env")
 
-project_id = parser.get("DEFAULT", "project_id")
-dataset_id = parser.get("DEFAULT", "dataset_id")
-credentials = parser.get("DEFAULT", "credentials")
+# project_id = parser.get("DEFAULT", "project_id")
+# dataset_id = parser.get("DEFAULT", "dataset_id")
+# credentials = parser.get("DEFAULT", "credentials")
 # table_name = parser.get("DEFAULT", "table")
+project_id="calculator-369319"
+dataset_id="calculator-369319.calc_list"
+credentials="calculator-369319-f1a35f938612.json"
+
 
 api_client = ApiClient()
 engine_path = "bigquery:///?DataSetId="+dataset_id+"&ProjectId="+project_id+"&InitiateOAuth=GETANDREFRESH&OAuthSettingsLocation="+credentials
