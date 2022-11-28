@@ -1,6 +1,5 @@
 from operator import itemgetter
 import os
-from app import app
 from typing import ItemsView
 from flask import Flask, render_template, request, url_for, redirect
 import sqlalchemy
@@ -34,8 +33,9 @@ session = Session()
 # # base.query = session.query_property()
 # base = sqlalchemy.declarative_base()
 
-class products(ItemsView, price): #todo: sort
-    __tablename__ = "products"
+base = declarative_base()
+class products(base): #todo: sort
+    __tablename__ = "calc_list.products"
     item = Column(String,primary_key=True)
     price = Column(Float)
 
@@ -51,9 +51,9 @@ def calculator():
     inputText1=str(request.form['inputText1'])
     inputText2=str(request.form['inputText2'])
     inputText3=str(request.form['inputText3'])
-    inputNumber1=int(request.form['inputNumber1'])
-    inputNumber2=int(request.form['inputNumber2'])
-    inputNumber3=int(request.form['inputNumber3'])
+    inputNumber1=float(request.form['inputNumber1'])
+    inputNumber2=float(request.form['inputNumber2'])
+    inputNumber3=float(request.form['inputNumber3'])
     total = inputNumber1+inputNumber2+inputNumber3
     print("Total: ", total)
     
@@ -63,14 +63,17 @@ def calculator():
 
     inputs_list=[input1, input2, input3]
     print("List: ",inputs_list)
-    
+
+    # session.add(input1)
+    # session.commit()
+
     for i in inputs_list:
         session.add(i)
         session.commit()
         print("Committed, ", i)
 
-    
+    print("Total: ", total)
     return render_template("results.html",inputText1=inputText1, inputNumber1=inputNumber1, inputText2=inputText2, inputNumber2=inputNumber2, inputText3=inputText3, inputNumber3=inputNumber3,total=total)
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
+    app.run(debug= True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
