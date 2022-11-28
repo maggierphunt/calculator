@@ -9,19 +9,14 @@ from sqlalchemy.schema import *
 from pybigquery.api import ApiClient
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
-# import configparser
+import configparser
 
-# parser = configparser.ConfigParser()
-# parser.read(".env")
+parser = configparser.ConfigParser()
+parser.read(".env")
 
-# project_id = parser.get("DEFAULT", "project_id")
-# dataset_id = parser.get("DEFAULT", "dataset_id")
-# credentials = parser.get("DEFAULT", "credentials")
-# table_name = parser.get("DEFAULT", "table")
-project_id="calculator-369319"
-dataset_id="calculator-369319.calc_list"
-credentials="calculator-369319-f1a35f938612.json"
-
+project_id = parser.get("DEFAULT", "project_id")
+dataset_id = parser.get("DEFAULT", "dataset_id")
+credentials = parser.get("DEFAULT", "credentials")
 
 api_client = ApiClient()
 engine_path = "bigquery:///?DataSetId="+dataset_id+"&ProjectId="+project_id+"&InitiateOAuth=GETANDREFRESH&OAuthSettingsLocation="+credentials
@@ -29,12 +24,9 @@ engine = create_engine(engine_path, arraysize=1000)
 
 Session = sessionmaker(bind=engine)
 session = Session()
-# session.Model = session.make_declarative_base()
-# # base.query = session.query_property()
-# base = sqlalchemy.declarative_base()
 
 base = declarative_base()
-class products(base): #todo: sort
+class products(base):
     __tablename__ = "calc_list.products"
     item = Column(String,primary_key=True)
     price = Column(Float)
@@ -63,9 +55,6 @@ def calculator():
 
     inputs_list=[input1, input2, input3]
     print("List: ",inputs_list)
-
-    # session.add(input1)
-    # session.commit()
 
     for i in inputs_list:
         session.add(i)

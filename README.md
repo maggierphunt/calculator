@@ -9,6 +9,8 @@ Shortcuts:
 - requirements.txt is not refined
 - picked bigquery for ease but not convinced it was the best solution
 - didn't use env variables, just values, for easy deployment
+- usually would add some comments explaining / documenting
+- price format on display page does not add extra 0 if needed
 
 
 Possible interpretations:
