@@ -128,4 +128,6 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+#vars
 .env
+calculator-369319-f1a35f938612.json
