@@ -1,10 +1,11 @@
 # calculator
 Python / SQL calculator - practice with SQL Alchemy
 
-Shortcuts:
-- Lifting from buttons and some css from past projects
-- Did not set up virtualenv or anything strong in terms of cyber sec or auth
+Shortcuts / to do next:
+- Logging
+- Have not yet not set up virtualenv or anything strong in terms of cyber sec or auth
 - Did not do anything fancy SQL wise - only a few rows of data
+- Security is low - json etc
 - initially built to run locally and push to a csv - now working on operatiolaising that fully in this branch. hosting pending
 - requirements.txt is not refined
 - picked bigquery for ease but not convinced it was the best solution
