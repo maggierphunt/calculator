@@ -1,5 +1,5 @@
 # calculator
-Python / SQL calculator
+Python / SQL calculator - practice with SQL Alchemy
 
 Shortcuts:
 - Lifting from buttons and some css from past projects
@@ -13,7 +13,7 @@ Shortcuts:
 - price format on display page does not add extra 0 if needed
 
 
-Possible interpretations:
+Possible interpretations of calc screen updagte
 1 Build front end where users select items from a pre-existing db; the landing pge dispays each item's cost And then once submitted the results page shows the total
 2 Build front end where users enter custom items and amounts; these are added to the db when submitted and the total vaule of the items they havelisted is displayed on the results page
 3 Build front end where users enter custom items and amounts; these are added to the db when submitted and the total vauel of all items listed in the db is displayed on the results page
