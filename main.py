@@ -5,8 +5,6 @@ from flask import Flask, render_template, request, url_for, redirect
 import csv
 import json
 
-
-
 app = Flask(__name__)
 
 @app.route("/", methods=["POST", "GET"])    
