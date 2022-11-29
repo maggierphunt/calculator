@@ -5,10 +5,10 @@ Shortcuts:
 - Lifting from buttons and some css from past projects
 - Did not set up virtualenv or anything strong in terms of cyber sec or auth
 - Did not do anything fancy SQL wise - only a few rows of data
-- initially built to run locally and lush to a csv - now working on operatiolaising that fully in this branch. hosting pending
+- initially built to run locally and push to a csv - now working on operatiolaising that fully in this branch. hosting pending
 - requirements.txt is not refined
 - picked bigquery for ease but not convinced it was the best solution
-- didn't use env variables, just values, for easy deployment
+- display is symmetrical, unlike wireframe
 - usually would add some comments explaining / documenting
 - price format on display page does not add extra 0 if needed
 
