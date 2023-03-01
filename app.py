@@ -29,7 +29,7 @@ class products(base):
     item = Column(String,primary_key=True)
     price = Column(Float)
 
-app = Flask("calculator")
+app = Flask("calculator-maggie-hunt")
 
 @app.route("/", methods=["POST", "GET"])    
 def landing_page():
