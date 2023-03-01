@@ -13,6 +13,7 @@ import configparser
 
 parser = configparser.ConfigParser()
 parser.read(".env")
+print(parser.read(".env"))
 project_id = parser.get("DEFAULT", "project_id")
 dataset_id = parser.get("DEFAULT", "dataset_id")
 credentials = parser.get("DEFAULT", "credentials")
