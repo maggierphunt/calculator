@@ -14,9 +14,10 @@ import configparser
 parser = configparser.ConfigParser()
 parser.read(".env")
 print(parser.read(".env"))
-project_id = parser.get("DEFAULT", "project_id")
-dataset_id = parser.get("DEFAULT", "dataset_id")
-credentials = parser.get("DEFAULT", "credentials")
+project_id = "calculator-369319" #parser.get("DEFAULT", "project_id")
+dataset_id = "calculator-369319.calc_list"#parser.get("DEFAULT", "dataset_id")
+credentials = "calculator-369319-f1a35f938612.json"
+# parser.get("DEFAULT", "credentials")
 
 api_client = ApiClient()
 engine_path = "bigquery:///?DataSetId="+dataset_id+"&ProjectId="+project_id+"&InitiateOAuth=GETANDREFRESH&OAuthSettingsLocation="+credentials
